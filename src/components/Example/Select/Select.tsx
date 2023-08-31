@@ -1,19 +1,27 @@
 import { useState } from "react";
 import { Card } from "../Card/Card";
-export function Select(){
-    const [state, setState] = useState(false);
-    const toggleTextHandler = (): void => {
-      setState(!state);
-      };
-    // return (
-    //   <div className="example">
-    //     <h1>{state}</h1>
-    //     <button onClick={toggleTextHandler}>Toggle Text</button>
-    //       {state ? <div> 'Text' </div> : null}
-    //       {state && <div> 'Text2' </div>}
-    //   </div>
+ export const Select = ({ onSelectColor }:any) => {
+    const colorOptions = [
+        { value: '', label: 'Default' },
+        { value: 'red', label: 'Red' },
+        { value: 'blue', label: 'Blue' },
+        { value: 'green', label: 'Green' },
+        { value: 'purple', label: 'Purple' },
+        { value: 'custom', label: 'Add Custom Color' },
+      ];
+      const [color,changeColor]=useState<string>()
+      const handleColorChange = (event:any) => {
+          const selectedColor = event.target.value;
+          useState(selectedColor);      
     return(
-       <div><Card color="blue"></Card><select><option value="">blue</option><option value="">red</option></select></div>
-       
+       <div><Card color={onSelectColor}></Card> <select onChange={handleColorChange}>
+       {colorOptions.map((option) => (
+         <option key={option.value} value={option.value}>
+           {option.label}
+         </option>
+       ))}
+     </select>
+       </div>
     )
 }
+ }

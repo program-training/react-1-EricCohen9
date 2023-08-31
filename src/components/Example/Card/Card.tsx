@@ -1,6 +1,6 @@
 import "./Card.css"
 interface props{
-    color:"red"|"blue"
+    color:any
 }
 export function Card(props:props){
     return(
