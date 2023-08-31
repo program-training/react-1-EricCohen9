@@ -1,12 +1,15 @@
 import "./App.css";
-import { Example } from "./components/Example/Example";
-
+import {Text} from "./components/Example/text";
+import { Card } from "./components/Example/Card/Card";
+import { Select } from "./components/Example/Select/Select";
 function App() {
   return (
-    <>
-      <Example />{" "}
-    </>
+    <div>
+    <Text/>
+    {/* <Card/> */}
+    <Select/>
+    </div>
   );
 }
 
-export default App;
+export default App
